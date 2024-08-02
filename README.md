@@ -1,5 +1,5 @@
 # CoralCove
-*This Repository contains a CoralCove Resort Room booking website.Where user can register and book room.*
+*This Repository contains a CoralCove Resort Room booking website.Where user can register and book rooms.*
 
 # Technologies & Tools
 **Frontend** - *JSP, JavaScript, Bootstrap, CSS*<br/>
