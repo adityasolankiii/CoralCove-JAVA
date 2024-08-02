@@ -16,6 +16,8 @@ public class login extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         processRequest(request, response);
+        RequestDispatcher rd = request.getRequestDispatcher("login.jsp");
+        rd.forward(request, response);
     }
 
     
@@ -35,7 +37,7 @@ public class login extends HttpServlet {
         ResultSet rs = null;
 
         try {
-            String dbURL = "jdbc:mysql://localhost:3242/CaseStudy";
+            String dbURL = "jdbc:mysql://localhost:3242/CoralCove";
             String dbUsername = "root";
             String dbPassword = "";
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -49,9 +51,9 @@ public class login extends HttpServlet {
 
             if (rs.next()) {
                 HttpSession session = request.getSession();
-                session.setAttribute("email", email);
-                session.setAttribute("username", rs.getString("username"));
-                session.setAttribute("dob", rs.getString("dob"));
+//                session.setAttribute("email", rs.getString("email"));
+//                session.setAttribute("username", rs.getString("username"));
+//                session.setAttribute("dob", rs.getString("dob"));
                 session.setAttribute("userid", rs.getString("userid"));
                 
                 response.sendRedirect("home");

@@ -23,7 +23,8 @@
                 <a  class="nav-link mt-1" href="allbookings"> <button class="btn btn-dark">All Bookings</button></a>
                 <a class="nav-link mt-1 btn btn-dark px-2 mx-2" href="logout"><button class="btn btn-dark">Logout</button></a>
                 <%} else {%>
-                    <a class="nav-link mt-1 btn btn-dark" href="login.jsp"><button class="btn btn-dark">Login</button></a>
+                    <a class="nav-link mt-1 btn btn-dark" href="login"><button class="btn btn-dark">Login</button></a>
+                    <a class="nav-link mt-1 btn btn-dark mx-2" href="signup"><button class="btn btn-dark">Sign up</button></a>
                 <%}%>
 
             </div>

@@ -41,7 +41,9 @@ public class allbookings extends HttpServlet {
                     + "ORDER BY rb.checkin DESC";
             pst = con.prepareStatement(query);
             pst.setString(1, userid);
-            try (ResultSet rs = pst.executeQuery()) {
+            ResultSet rs = pst.executeQuery();
+
+            if (rs == null) {
                 List<Map<String, Object>> bookings = new ArrayList<>();
                 while (rs.next()) {
                     Map<String, Object> booking = new HashMap<>();
@@ -71,11 +73,16 @@ public class allbookings extends HttpServlet {
                     request.setAttribute("error", error);
                     session.removeAttribute("error"); // Remove the error after displaying it
                 }
-
                 request.setAttribute("bookings", bookings);
-                RequestDispatcher rd = request.getRequestDispatcher("allbookings.jsp");
-                rd.forward(request, response);
+            } else {
+                String msg = "<div class='alert alert-danger alert-dismissible fade show col-lg-5 align-self-center' role='alert'>"
+                        + "No Booking details found!"
+                        + "</div>";
+                request.setAttribute("msg", msg);
             }
+
+            RequestDispatcher rd = request.getRequestDispatcher("allbookings.jsp");
+            rd.forward(request, response);
 
         } catch (SQLException sqlex) {
             System.out.println(sqlex.getMessage());
@@ -112,7 +119,6 @@ public class allbookings extends HttpServlet {
             } else {
                 msg = "<div class='alert alert-danger alert-dismissible fade show col-lg-5 align-self-center' role='alert'>"
                         + "Something went wrong, Please try again later"
-                        + "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button>"
                         + "</div>";
             }
 

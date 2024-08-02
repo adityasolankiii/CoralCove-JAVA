@@ -1,7 +1,4 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@ page import="jakarta.servlet.*" %>
-<%@ page import="jakarta.servlet.http.*" %>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,7 +36,7 @@
             <button class="btn btn-dark mt-4 mb-2" name="btnSubmit">Login</button>
 
             <div class="links">
-                Don't have an account? <a href="register.html">Sign Up Now</a>
+                Don't have an account? <a href="signup">Sign Up Now</a>
             </div>
         </form>
     </div>
